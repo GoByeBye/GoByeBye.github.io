@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/daddie0
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://daddie.dev
+  * I am daddie0 (https://keybase.io/daddie0) on keybase.
+  * I have a public key ASB6cZ6_GEk18XLFMViGIRR6Q8gWnVP-BLcm7xEtHHdV3go
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01207a719ebf184935f172c531588621147a43c8169d53fe04b726ef112d1c7755de0a",
+      "host": "keybase.io",
+      "kid": "01207a719ebf184935f172c531588621147a43c8169d53fe04b726ef112d1c7755de0a",
+      "uid": "5adaad2e998c28bc25e58279cf45a819",
+      "username": "daddie0"
+    },
+    "merkle_root": {
+      "ctime": 1613873969,
+      "hash": "cd97a87b72a27eef9f4cc9f4245b3a914238f247661bec6eb7da302b8c0ebc183dd4df7703c3ec956689b6e7e7b9cc051924daa433adc07cb95f5be2e8226171",
+      "hash_meta": "9848e335e44e6d6a21a6ec9dda7a077376c8f74af26a0388e94c232e3bb10d84",
+      "seqno": 19176835
+    },
+    "service": {
+      "entropy": "XedknWGHEc8cCoYCHnciG15g",
+      "hostname": "daddie.dev",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1613873995,
+  "expire_in": 504576000,
+  "prev": "2987adabbdb93c3094eaca7f7e7b2e939383effe9028d676fda6fa3e983a2c02",
+  "seqno": 26,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgenGevxhJNfFyxTFYhiEUekPIFp1T/gS3Ju8RLRx3Vd4Kp3BheWxvYWTESpcCGsQgKYetq725PDCU6sp/fnsuk5OD7/6QKNZ2/ab6Ppg6LALEIFcYBXUSWGR4sGiCly5DJwwKUkiurJgPkLg8BE79Y9VmAgHCo3NpZ8RAT5c8nZwqKZxqBglPNj3/pFC0QKHEIMtf+mCTIr/oNEopOXXDNgqnQBvdleNphC9OvJVD58aT02tz7u848qBDDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIMmw6A9hoOBHHpUM9wU5GhGRynXXi4e/3GlwnF0i21q3o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/daddie0
+
+==================================================================
