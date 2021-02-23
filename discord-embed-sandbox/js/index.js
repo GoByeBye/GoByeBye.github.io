@@ -39,33 +39,33 @@ $(document).ready(function () {
     resetEmbed();
 
     // add basic embed generation to source
-    source = 'const embed = require("discord-embed-maker")';
+    source = 'const embed = require(`discord-embed-maker`)';
 
     if (embed.url) {
-      $('.embed-inner').append('<div class="embed-title"><a href="' + embed.url + '">' + embed.title + '</a></div>');
+      $('.embed-inner').append('<div class=`embed-title`><a href=`' + embed.url + '`>' + embed.title + '</a></div>');
 
       // update source
       if (switches.useVars) {
         source += '\nembed.setTitle' + embed.title + ', url=' + embed.url;
       } else {
-        source += 'title="' + embed.title + '", url="' + embed.url + '"';
+        source += 'title=`' + embed.title + '`, url=`' + embed.url + '`';
       }
     } else if (embed.title.length === 0) {
-      source += "";
+      source += ``;
     } else {
-      $('.embed-inner').append('<div class="embed-title">' + embed.title + '</div>');
+      $('.embed-inner').append('<div class=`embed-title`>' + embed.title + '</div>');
 
       // update source
       if (switches.useVars) {
         source += 'title=' + embed.title;
       } else {
-        source += 'title="' + embed.title + '"';
+        source += 'title=`' + embed.title + '`';
       }
 
     }
 
     if (embed.description) {
-      $('.embed-inner').append('<div class="embed-description">' + converter.makeHtml(embed.description) + '</div>');
+      $('.embed-inner').append('<div class=`embed-description`>' + converter.makeHtml(embed.description) + '</div>');
 
       if (embed.title.length > 0 || embed.url.length > 0) {
         source += ', '
@@ -75,7 +75,7 @@ $(document).ready(function () {
       if (switches.useVars) {
         source += 'description=' + embed.description;
       } else {
-        source += 'description="' + embed.description + '"';
+        source += 'description=`' + embed.description + '`';
       }
     }
 
@@ -97,13 +97,13 @@ $(document).ready(function () {
       // add author to source
       source += 'embed.setAuthor(';
 
-      $('.embed-title').before('<div class="embed-author"><a class="embed-author-name" href="' + embed.author.url + '">' + embed.author.name + '</a></div>');
+      $('.embed-title').before('<div class=`embed-author`><a class=`embed-author-name` href=`' + embed.author.url + '`>' + embed.author.name + '</a></div>');
 
       // update source
       if (switches.useVars) {
         source += embed.author.name;
       } else {
-        source += '"' + embed.author.name + '"';
+        source += '`' + embed.author.name + '`';
       }
 
       if(embed.author.url) {
@@ -112,12 +112,12 @@ $(document).ready(function () {
         if (switches.useVars) {
           source += 'url=' + embed.author.url;
         } else {
-          source += 'url="' + embed.author.url + '"';
+          source += 'url=`' + embed.author.url + '`';
         }
       }
 
       if (embed.author.icon) {
-        $('.embed-author-name').before('<img class="embed-author-icon" src="' + embed.author.icon + '" />');
+        $('.embed-author-name').before('<img class=`embed-author-icon` src=`' + embed.author.icon + '` />');
 
         source += ', ';
 
@@ -125,7 +125,7 @@ $(document).ready(function () {
         if (switches.useVars) {
           source += 'icon_url=' + embed.author.icon;
         } else {
-          source += 'icon_url="' + embed.author.icon + '"';
+          source += 'icon_url=`' + embed.author.icon + '`';
         }
       }
 
@@ -137,14 +137,14 @@ $(document).ready(function () {
       // add thumbnail
       source += 'embed.setThumbnail(';
 
-      $('.card.embed .card-block').append('<img class="embed-thumb" src="' + embed.thumbUrl + '" />');
+      $('.card.embed .card-block').append('<img class=`embed-thumb` src=`' + embed.thumbUrl + '` />');
       $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight);
 
       // update source
       if (switches.useVars) {
-        source += '"' + embed.thumbUrl;
+        source += '`' + embed.thumbUrl;
       } else {
-        source += '"' + embed.thumbUrl + '"';
+        source += '`' + embed.thumbUrl + '`';
       }
 
       // finish thumbnail
@@ -152,7 +152,7 @@ $(document).ready(function () {
     }
 
     if (embed.fields.length > 0) {
-      $('.embed-inner').append('<div class="fields"></div>');
+      $('.embed-inner').append('<div class=`fields`></div>');
     }
 
     for (var _iterator = embed.fields, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol.iterator]();;) {
@@ -169,24 +169,24 @@ $(document).ready(function () {
 
       var field = _ref;
 
-      $('.embed-inner .fields').append('\n        <div class="field ' + (field.inline && 'inline') + '">\n          <div class="field-name">' + field.name + '</div>\n          <div class="field-value">' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ');
+      $('.embed-inner .fields').append('\n        <div class=`field ' + (field.inline && 'inline') + '`>\n          <div class=`field-name`>' + field.name + '</div>\n          <div class=`field-value`>' + converter.makeHtml(field.value) + '</div>\n        </div>\n      ');
 
       // add field
       if (switches.useVars) {
-        source += 'embed.addField(' + field.name + ', value=' + field.value + ', ' + (field.inline && 'true' || 'false') + ')\n';
+        source += 'embed.addField(' + field.name + ', ' + field.value + ', ' + (field.inline && 'true' || 'false') + ')\n';
       } else {
-        source += 'embed.addField("' + field.name + '", value="' + field.value + '", ' + (field.inline && 'true' || 'false') + ')\n';
+        source += 'embed.addField(`' + field.name + '`, `' + field.value + '`, ' + (field.inline && 'true' || 'false') + ')\n';
       }
     }
 
     if (embed.footer) {
-      $('.card.embed').append('<div class="embed-footer"><span>' + embed.footer + '</span></div>');
+      $('.card.embed').append('<div class=`embed-footer`><span>' + embed.footer + '</span></div>');
 
       // add footer
       if (switches.useVars) {
         source += 'embed.setFooter(' + embed.footer + ')\n';
       } else {
-        source += 'embed.setFooter("' + embed.footer + '")\n';
+        source += 'embed.setFooter(`' + embed.footer + '`)\n';
       }
     }
 
@@ -206,7 +206,7 @@ $(document).ready(function () {
     $('.input-fields').html('');
 
     var _loop = function _loop(i) {
-      $('.input-fields').append('<div class="form-group row">\n        <div class="col-sm-4">\n          <input class="form-control" id="field-' + i + '-name" type="text" placeholder="name" value="' + (embed.fields[i].name !== undefined ? embed.fields[i].name : '') + '" />\n        </div>\n        <div class="col-sm-4">\n          <input class="form-control" id="field-' + i + '-value" type="text" placeholder="value" value="' + (embed.fields[i].value !== undefined ? embed.fields[i].value : '') + '" />\n        </div>\n        <div class="col-sm-2">\n          <div class="form-check">\n            <label class="form-check-label">\n              <input class="form-check-input" id="field-' + i + '-inline" type="checkbox" ' + (embed.fields[i].inline !== undefined ? 'checked="checked"' : '') + '> Inline\n            </label>\n          </div>\n        </div>\n        <div class="col-sm-2">\n          <button id="field-' + i + '-delete" class="btn btn-danger">Delete</button>\n        </div>\n      </div>');
+      $('.input-fields').append('<div class=`form-group row`>\n        <div class=`col-sm-4`>\n          <input class=`form-control` id=`field-' + i + '-name` type=`text` placeholder=`name` value=`' + (embed.fields[i].name !== undefined ? embed.fields[i].name : '') + '` />\n        </div>\n        <div class=`col-sm-4`>\n          <input class=`form-control` id=`field-' + i + '-value` type=`text` placeholder=`value` value=`' + (embed.fields[i].value !== undefined ? embed.fields[i].value : '') + '` />\n        </div>\n        <div class=`col-sm-2`>\n          <div class=`form-check`>\n            <label class=`form-check-label`>\n              <input class=`form-check-input` id=`field-' + i + '-inline` type=`checkbox` ' + (embed.fields[i].inline !== undefined ? 'checked=`checked`' : '') + '> Inline\n            </label>\n          </div>\n        </div>\n        <div class=`col-sm-2`>\n          <button id=`field-' + i + '-delete` class=`btn btn-danger`>Delete</button>\n        </div>\n      </div>');
       $('#field-' + i + '-name').keyup(function () {
         updateFieldName(i, $('#field-' + i + '-name').val());
       });
@@ -228,7 +228,7 @@ $(document).ready(function () {
     for (var i = 0; i < fields; i++) {
       _loop(i);
     }
-    $('.input-fields').append('<button id="add-field" class="btn btn-success">Add field</button>');
+    $('.input-fields').append('<button id=`add-field` class=`btn btn-success`>Add field</button>');
     $('#add-field').click(function (e) {
       e.preventDefault();
       addField();

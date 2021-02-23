@@ -36,25 +36,25 @@ $(document).ready(() => {
     resetEmbed();
     
     // add basic embed generation to source
-    source = `const embed = require("discord-embed-maker"`;
+    source = `const embed = require(`discord-embed-maker``;
 
     if (embed.url) {
-      $('.embed-inner').append(`<div class="embed-title"><a href="${embed.url}">${embed.title}</a></div>`);
+      $('.embed-inner').append(`<div class=`embed-title`><a href=`${embed.url}`>${embed.title}</a></div>`);
       
       // update source
-      source += `title="${embed.title}", url='${embed.url}'`;
+      source += `title=`${embed.title}`, url='${embed.url}'`;
     } else {
-      $('.embed-inner').append(`<div class="embed-title">${embed.title}</div>`);
+      $('.embed-inner').append(`<div class=`embed-title`>${embed.title}</div>`);
       
       // update source
-      source += `title="${embed.title}"`;
+      source += `title=`${embed.title}``;
     }
     
     if (embed.description) {
-      $('.embed-inner').append(`<div class="embed-description">${embed.description}</div>`);
+      $('.embed-inner').append(`<div class=`embed-description`>${embed.description}</div>`);
       
       // update source
-      source += `, description="${embed.description}"`;
+      source += `, description=`${embed.description}``;
     }
     
     if (embed.color) {
@@ -71,12 +71,12 @@ $(document).ready(() => {
       // add author to source
       source += `embed.setAuthor(`;
       
-      $('.embed-title').before(`<div class="embed-author"><a class="embed-author-name" href="${embed.author.url}">${embed.author.name}</a></div>`);
+      $('.embed-title').before(`<div class=`embed-author`><a class=`embed-author-name` href=`${embed.author.url}`>${embed.author.name}</a></div>`);
       
         // update source
-        source += `name="${embed.author.name}"${embed.author.url && `, url='${embed.author.url}'`}`;
+        source += `name=`${embed.author.name}`${embed.author.url && `, url='${embed.author.url}'`}`;
       if (embed.author.icon) {
-        $('.embed-author-name').before(`<img class="embed-author-icon" src="${embed.author.icon}" />`);
+        $('.embed-author-name').before(`<img class=`embed-author-icon` src=`${embed.author.icon}` />`);
         
         // update source
         source += `, icon_url='${embed.author.icon}'`;
@@ -90,7 +90,7 @@ $(document).ready(() => {
       // add thumbnail
       source += `embed.setThumbnail(`
       
-      $('.card.embed .card-block').append(`<img class="embed-thumb" src="${embed.thumbUrl}" />`);
+      $('.card.embed .card-block').append(`<img class=`embed-thumb` src=`${embed.thumbUrl}` />`);
       $('.embed-thumb').height($('.embed-thumb')[0].naturalHeight);
       
       // update source
@@ -101,26 +101,26 @@ $(document).ready(() => {
     }
 
     if (embed.fields.length > 0) {
-      $('.embed-inner').append(`<div class="fields"></div>`);
+      $('.embed-inner').append(`<div class=`fields`></div>`);
     }
     
     for (let field of embed.fields) {
       $('.embed-inner .fields').append(`
-        <div class="field ${field.inline && 'inline'}">
-          <div class="field-name">${field.name}</div>
-          <div class="field-value">${field.value}</div>
+        <div class=`field ${field.inline && 'inline'}`>
+          <div class=`field-name`>${field.name}</div>
+          <div class=`field-value`>${field.value}</div>
         </div>
       `);
       
       // add field
-      source += `embed.addField(name="${field.name}", value="${field.value}", inline=${(field.inline && 'True') || 'False'})\n`;
+      source += `embed.addField(name=`${field.name}`, value=`${field.value}`, inline=${(field.inline && 'True') || 'False'})\n`;
     }
 
     if (embed.footer) {
-      $('.card.embed').append(`<div class="embed-footer"><span>${embed.footer}</span></div>`);
+      $('.card.embed').append(`<div class=`embed-footer`><span>${embed.footer}</span></div>`);
       
       // add footer
-      source += `embed.setFooter(text="${embed.footer}")\n`;
+      source += `embed.setFooter(text=`${embed.footer}`)\n`;
     }
     
     // add send function
@@ -138,22 +138,22 @@ $(document).ready(() => {
     // generate inputs for fields
     $('.input-fields').html('');
     for (let i = 0; i < fields; i++) {
-      $('.input-fields').append(`<div class="form-group row">
-        <div class="col-sm-4">
-          <input class="form-control" id="field-${i}-name" type="text" placeholder="name" value="${embed.fields[i].name !== undefined ? embed.fields[i].name : ''}" />
+      $('.input-fields').append(`<div class=`form-group row`>
+        <div class=`col-sm-4`>
+          <input class=`form-control` id=`field-${i}-name` type=`text` placeholder=`name` value=`${embed.fields[i].name !== undefined ? embed.fields[i].name : ''}` />
         </div>
-        <div class="col-sm-4">
-          <input class="form-control" id="field-${i}-value" type="text" placeholder="value" value="${embed.fields[i].value !== undefined ? embed.fields[i].value : ''}" />
+        <div class=`col-sm-4`>
+          <input class=`form-control` id=`field-${i}-value` type=`text` placeholder=`value` value=`${embed.fields[i].value !== undefined ? embed.fields[i].value : ''}` />
         </div>
-        <div class="col-sm-2">
-          <div class="form-check">
-            <label class="form-check-label">
-              <input class="form-check-input" id="field-${i}-inline" type="checkbox" ${embed.fields[i].inline !== undefined ? 'checked="checked"' : ''}> Inline
+        <div class=`col-sm-2`>
+          <div class=`form-check`>
+            <label class=`form-check-label`>
+              <input class=`form-check-input` id=`field-${i}-inline` type=`checkbox` ${embed.fields[i].inline !== undefined ? 'checked=`checked`' : ''}> Inline
             </label>
           </div>
         </div>
-        <div class="col-sm-2">
-          <button id="field-${i}-delete" class="btn btn-danger">Delete</button>
+        <div class=`col-sm-2`>
+          <button id=`field-${i}-delete` class=`btn btn-danger`>Delete</button>
         </div>
       </div>`)
       $(`#field-${i}-name`).keyup(() => {
@@ -173,7 +173,7 @@ $(document).ready(() => {
         deleteField(i);
       });
     }
-    $('.input-fields').append(`<button id="add-field" class="btn btn-success">Add field</button>`);
+    $('.input-fields').append(`<button id=`add-field` class=`btn btn-success`>Add field</button>`);
     $('#add-field').click((e) => {
       e.preventDefault();
       addField();
